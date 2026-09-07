@@ -1,11 +1,8 @@
 # Αργοφαγείο
 
-Website for Αργοφαγείο in Thessaloniki.
+Ιστοσελίδα για το Αργοφαγείο στη Θεσσαλονίκη.
 
-## Contact
-- Address: Apellou 6, Thessaloniki 546 22, Greece
-- Phone: 231 022 1755
+## Στοιχεία επικοινωνίας
+- Διεύθυνση: Απελλού 6, Θεσσαλονίκη 546 22
+- Τηλέφωνο: 231 022 1755
 - Email: argofagio@gmail.com
-
-## Website
-https://argophageio-thessaloniki-demo.vercel.app
