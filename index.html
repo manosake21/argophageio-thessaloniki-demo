@@ -3,60 +3,100 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Αργοφαγείο – Θεσσαλονίκη</title>
+<title>ΑΡΓΟΦΑΓΕΙΟ – Θεσσαλονίκη</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 <style>
 :root{
-  --primary:#3a2b24;
-  --accent:#dcae55;
-  --bg:#f2eadf;
-  --text:#34241d;
-  --white:#fff;
-  --max-width:1200px;
+  --clr-primary:#3a2b24;
+  --clr-accent:#dcae55;
+  --clr-bg:#f9f5f0;
+  --clr-text:#34241d;
+  --clr-white:#fff;
+  --max-w:1200px;
+  --font-heading:'Playfair Display',serif;
+  --font-body:'Open Sans',system-ui,sans-serif;
 }
-*{box-sizing:border-box;margin:0;padding:0;}
+*,
+*::before,
+*::after{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+html{
+  scroll-behavior:smooth;
+}
 body{
-  font-family:'Open Sans',system-ui,sans-serif;
-  background:var(--bg);
-  color:var(--text);
+  font-family:var(--font-body);
+  background:var(--clr-bg);
+  color:var(--clr-text);
   line-height:1.6;
+  -webkit-font-smoothing:antialiased;
 }
-a{color:inherit;text-decoration:none;}
+a{
+  color:inherit;
+  text-decoration:none;
+}
+a:focus-visible,
+button:focus-visible{
+  outline:2px dashed var(--clr-accent);
+  outline-offset:2px;
+}
 header{
-  background:var(--primary);
-  color:var(--white);
+  background:var(--clr-primary);
+  color:var(--clr-white);
   padding:1rem;
-  position:sticky;top:0;z-index:10;
-  display:flex;justify-content:space-between;align-items:center;
+  position:sticky;
+  top:0;
+  z-index:10;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
 }
 header h1{
-  font-family:'Playfair Display',serif;
+  font-family:var(--font-heading);
   font-size:1.5rem;
+}
+nav{
+  position:relative;
 }
 nav ul{
   list-style:none;
-  display:flex;gap:1rem;
+  display:flex;
+  gap:1.5rem;
 }
 nav a{
   font-weight:600;
-  color:var(--white);
+  color:var(--clr-white);
 }
-nav a:hover{opacity:.8;}
+nav a:hover{
+  opacity:.8;
+}
 .menu-toggle{
   display:none;
   background:none;
   border:none;
-  color:var(--white);
+  color:var(--clr-white);
   font-size:1.5rem;
+  cursor:pointer;
 }
 .hero{
-  background:linear-gradient(135deg,#3a2b24 0%,#5c4a3e 100%);
-  color:var(--white);
+  position:relative;
+  background:linear-gradient(135deg,var(--clr-primary) 0%,#5c4a3e 100%);
+  color:var(--clr-white);
   text-align:center;
   padding:4rem 1rem;
+  overflow:hidden;
+}
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image:url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2220%22 height=%2220%22><circle cx=%2210%22 cy=%2210%22 r=%225%22 fill=%22%23ffffff1a%22/></svg>');
+  opacity:.1;
 }
 .hero h1{
-  font-family:'Playfair Display',serif;
+  font-family:var(--font-heading);
   font-size:clamp(2.5rem,10vw,5rem);
   margin-bottom:.5rem;
 }
@@ -67,16 +107,26 @@ nav a:hover{opacity:.8;}
 }
 .cta{
   display:inline-block;
-  background:var(--accent);
-  color:var(--primary);
+  background:var(--clr-accent);
+  color:var(--clr-primary);
   padding:.75rem 1.5rem;
   border-radius:999px;
   font-weight:600;
   transition:transform .2s;
 }
-.cta:hover{transform:scale(1.05);}
+.cta:hover{
+  transform:scale(1.05);
+}
+@media (prefers-reduced-motion:reduce){
+  .cta{
+    transition:none;
+  }
+  .cta:hover{
+    transform:none;
+  }
+}
 .grid{
-  max-width:var(--max-width);
+  max-width:var(--max-w);
   margin:2rem auto;
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
@@ -84,45 +134,62 @@ nav a:hover{opacity:.8;}
   padding:0 1rem;
 }
 .card{
-  background:var(--white);
+  background:var(--clr-white);
   border-radius:12px;
   padding:1.5rem;
   box-shadow:0 4px 12px rgba(0,0,0,.08);
   display:flex;
   flex-direction:column;
-  gap:.5rem;
+  gap:.75rem;
 }
 .card h2{
-  font-family:'Playfair Display',serif;
+  font-family:var(--font-heading);
   font-size:1.4rem;
-  color:var(--primary);
+  color:var(--clr-primary);
 }
-section#contact,section#visit{
-  max-width:var(--max-width);
-  margin:2rem auto;
-  padding:1rem;
+.card svg{
+  width:40px;
+  height:40px;
+  fill:var(--clr-accent);
 }
-section#contact h2,section#visit h2{
-  font-family:'Playfair Display',serif;
+section{
+  padding:2rem 1rem;
+}
+section h2{
+  font-family:var(--font-heading);
   font-size:1.8rem;
   margin-bottom:.5rem;
+  text-align:center;
 }
 footer{
-  background:var(--primary);
-  color:var(--white);
+  background:var(--clr-primary);
+  color:var(--clr-white);
   text-align:center;
   padding:2rem 1rem;
 }
 footer strong{
   display:block;
-  font-family:'Playfair Display',serif;
+  font-family:var(--font-heading);
   font-size:1.2rem;
   margin-bottom:.5rem;
 }
 @media (max-width:768px){
-  nav ul{display:none;flex-direction:column;background:var(--primary);position:absolute;right:0;top:100%;width:200px;}
-  nav ul.show{display:flex;}
-  .menu-toggle{display:block;}
+  nav ul{
+    display:none;
+    flex-direction:column;
+    background:var(--clr-primary);
+    position:absolute;
+    right:0;
+    top:100%;
+    width:200px;
+    padding:1rem 0;
+  }
+  nav ul.show{
+    display:flex;
+  }
+  .menu-toggle{
+    display:block;
+  }
 }
 </style>
 </head>
@@ -140,41 +207,46 @@ footer strong{
   </nav>
 </header>
 
-<section class="hero" id="hero">
-  <h1>Slow food. Good company.</h1>
-  <p>Ένα editorial‑style website concept που κάνει την ταυτότητα, το φαγητό και την τοποθεσία εύκολα discoverable.</p>
-  <a class="cta" href="tel:+302310221755">Καλέστε 2310 221755</a>
-</section>
+<main>
+  <section class="hero" id="hero">
+    <h1>Slow food. Good company.</h1>
+    <p>Ένα editorial‑style website concept που κάνει την ταυτότητα, το φαγητό και την τοποθεσία εύκολα discoverable.</p>
+    <a class="cta" href="tel:+302310221755">Καλέστε 2310 221755</a>
+  </section>
 
-<section class="grid" id="menu">
-  <div class="card">
-    <h2>Menu</h2>
-    <p>Highlight signature dishes and seasonal plates with visual hierarchy.</p>
-  </div>
-  <div class="card">
-    <h2>Visit</h2>
-    <p>Apellou 6, Thessaloniki 546 22</p>
-  </div>
-  <div class="card">
-    <h2>Digital upgrade</h2>
-    <p>Independent website instead of relying only on social media.</p>
-  </div>
-</section>
+  <section class="grid" id="menu">
+    <article class="card">
+      <svg aria-hidden="true" viewBox="0 0 64 64"><path d="M32 4a28 28 0 1028 28A28 28 0 0032 4zm0 52a24 24 0 1124-24 24 24 0 01-24 24z"/></svg>
+      <h2>Menu</h2>
+      <p>Explore our signature dishes and seasonal plates.</p>
+    </article>
+    <article class="card">
+      <svg aria-hidden="true" viewBox="0 0 64 64"><path d="M12 12h40v40H12z"/></svg>
+      <h2>Visit</h2>
+      <p>Apellou 6, Thessaloniki 546 22</p>
+    </article>
+    <article class="card">
+      <svg aria-hidden="true" viewBox="0 0 64 64"><path d="M8 32h48M32 8v48"/></svg>
+      <h2>Digital upgrade</h2>
+      <p>Independent website instead of relying only on social media.</p>
+    </article>
+  </section>
 
-<section id="contact">
-  <h2>Επικοινωνία</h2>
-  <p><strong>Τηλέφωνο:</strong> <a href="tel:+302310221755">+30 231 022 1755</a></p>
-  <p><strong>Email:</strong> <a href="mailto:argofagio@gmail.com">argofagio@gmail.com</a></p>
-</section>
+  <section id="contact">
+    <h2>Επικοινωνία</h2>
+    <p><strong>Τηλέφωνο:</strong> <a href="tel:+302310221755">+30 231 022 1755</a></p>
+    <p><strong>Email:</strong> <a href="mailto:argofagio@gmail.com">argofagio@gmail.com</a></p>
+  </section>
 
-<section id="visit" class="visit-cta">
-  <h2>Μια στάση που αξίζει.</h2>
-  <p>Μια καλή έξοδος ξεκινά με εύκολη πρόσβαση και ξεκάθαρες πληροφορίες. Δες το σημείο και έλα να μας γνωρίσεις.</p>
-  <div>
-    <a href="https://maps.google.com/?cid=17064850966976707349" target="_blank" rel="noopener">Δες τη διαδρομή στο Google Maps</a>
-    <a href="tel:2310221755">Κάλεσε · 231 022 1755</a>
-  </div>
-</section>
+  <section id="visit">
+    <h2>Μια στάση που αξίζει.</h2>
+    <p>Μια καλή έξοδος ξεκινά με εύκολη πρόσβαση και ξεκάθαρες πληροφορίες. Δες το σημείο και έλα να μας γνωρίσεις.</p>
+    <div style="display:flex;flex-direction:column;gap:.5rem;align-items:center;">
+      <a class="cta" href="https://maps.google.com/?cid=17064850966976707349" target="_blank" rel="noopener">Δες τη διαδρομή στο Google Maps</a>
+      <a class="cta" href="tel:+302310221755">Κάλεσε · 231 022 1755</a>
+    </div>
+  </section>
+</main>
 
 <footer>
   <strong>ΑΡΓΟΦΑΓΕΙΟ</strong>
